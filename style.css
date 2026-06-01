@@ -1,0 +1,355 @@
+/* ======================
+   CSS VARIABLES
+====================== */
+:root {
+  --primary-color: #e50914;
+  --dark-bg: #141414;
+  --dark-surface: #181818;
+  --light-text: #f8f8f8;
+  --gray-text: #b3b3b3;
+  --overlay: rgba(0,0,0,0.5);
+  --card-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ======================
+   RESET
+====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* ======================
+   LAYOUT UTILITIES
+====================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #f40612;
+}
+
+.btn-secondary {
+  background-color: rgba(255,255,255,0.06);
+  color: var(--light-text);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255,255,255,0.12);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 16px;
+}
+
+/* ======================
+   HEADER
+====================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  background: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(20,20,20,0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+  width: 130px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* ======================
+   HERO SECTION
+====================== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(20,20,20,0.25), rgba(20,20,20,0.8)), url('https://assets.nflxext.com/ffe/siteui/vlv3/9c89d6/netflix-bg.jpg') center/cover no-repeat;
+  position: relative;
+  display: grid;
+  align-items: center;
+  padding: 140px 0 80px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  letter-spacing: 0.24em;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.hero-subtitle {
+  margin: 22px auto 0;
+  max-width: 620px;
+  color: var(--gray-text);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.hero-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-form input {
+  flex: 1 1 320px;
+  min-width: 0;
+  max-width: 520px;
+  padding: 16px 18px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.hero-form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ======================
+   MOVIE CARDS
+====================== */
+.main-content {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.movies {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.movie-row {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+
+.movie-row::-webkit-scrollbar {
+  height: 10px;
+}
+
+.movie-row::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+
+.movie-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+
+.movie-card {
+  position: relative;
+  min-width: 220px;
+  max-width: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  scroll-snap-align: start;
+  background: #111;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+
+.movie-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.85) 100%);
+}
+
+.movie-info {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.movie-info h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.movie-info p {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ======================
+   FOOTER
+====================== */
+.footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 24px 0 40px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 1024px) {
+  .main-nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .movie-card {
+    min-width: 180px;
+    max-width: 180px;
+  }
+
+  .movie-card img {
+    height: 280px;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    padding: 14px 0;
+  }
+
+  .hero-form {
+    flex-direction: column;
+  }
+
+  .hero-form button {
+    width: 100%;
+  }
+}

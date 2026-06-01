@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header container">
+    <a href="#" class="logo-link">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix logo" class="logo" />
+    </a>
+
+    <nav class="main-nav">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="#" class="nav-link">TV Shows</a>
+      <a href="#" class="nav-link">Movies</a>
+      <a href="#" class="nav-link">New &amp; Popular</a>
+      <a href="#" class="nav-link">My List</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="btn btn-secondary">Sign In</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <span class="eyebrow">STREAMING</span>
+      <h1 class="hero-title">Unlimited movies, TV shows and more.</h1>
+      <p class="hero-subtitle">Watch anywhere. Cancel anytime. Ready to watch? Enter your email to create or restart your membership.</p>
+
+      <form class="hero-form" id="signup-form">
+        <input type="email" id="email-input" placeholder="Email address" required />
+        <button type="submit" class="btn btn-primary">Get Started</button>
+      </form>
+    </div>
+  </section>
+
+  <main class="main-content container">
+    <section class="movies">
+      <div class="section-header">
+        <h2 class="section-title">Popular on Netflix</h2>
+      </div>
+      <div class="movie-row" id="popular-row"></div>
+    </section>
+
+    <section class="movies">
+      <div class="section-header">
+        <h2 class="section-title">Trending Now</h2>
+      </div>
+      <div class="movie-row" id="trending-row"></div>
+    </section>
+
+    <section class="movies">
+      <div class="section-header">
+        <h2 class="section-title">Watch Again</h2>
+      </div>
+      <div class="movie-row" id="watch-row"></div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>Designed with Netflix style in mind. Clone project for learning and UI polish.</p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
